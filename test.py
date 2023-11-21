@@ -115,13 +115,13 @@ def chat_page(client, USERNAME):
         msg_box.insert(END, '\n')
         msg_box.configure(state=DISABLED) 
         
-    def send_message(event = None):
+    def send_message():
         msg = msg_entry.get()
         if msg != '':
             
             dis_msg = f'You : {msg}'
             msg_box.configure(state=NORMAL)
-            msg_box.tag_configure('right', justify='right', foreground='white', font=('Helvetica Neue', 17), rmargin=15)
+            msg_box.tag_configure('right', justify='right', foreground='#581515', background='white',  font=('Helvetica Neue', 17), rmargin=15)
             msg_box.insert(END, dis_msg + '\n', 'right')
             msg_box.insert(END, '\n')
             msg_box.configure(state=DISABLED)
@@ -177,7 +177,6 @@ def chat_page(client, USERNAME):
     
     msg_entry = Entry(window,bg="#FFFFFF",font=('Consolas',20),width=25)
     msg_entry.place(x=0,y=410)
-    msg_entry.bind('<Return>', send_message)
     
     scrollbar = Scrollbar(window, orient= VERTICAL, bg= 'black', width=5)
     scrollbar.place(x= 485, y = 0)
